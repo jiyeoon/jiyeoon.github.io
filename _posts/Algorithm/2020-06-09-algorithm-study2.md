@@ -1,5 +1,5 @@
 ---
-layout : posts
+layout : post
 title : "[Algorithm]"
 category : algorithm
 date : 2020-06-09 20:00
