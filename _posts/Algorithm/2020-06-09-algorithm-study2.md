@@ -1,6 +1,6 @@
 ---
 layout : post
-title : "[Algorithm]"
+title : "[Algorithm] 따라하며 배우는 알고리즘 인프런 강좌!! 6장~10장"
 category : algorithm
 date : 2020-06-09 20:00
 ---
