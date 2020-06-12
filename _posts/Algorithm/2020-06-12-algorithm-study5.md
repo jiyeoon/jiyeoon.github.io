@@ -67,6 +67,13 @@ int main(){
 ```
 
 
+### 선생님 코드
+
+아!!!!! last winner를 고려해주어야한다!!!!
+대충 `int last_winner`로 해서.. A가 마지막으로 이기면 1, B가 마지막으로 이기면 2 이런식으로 하면 된다.
+
+
+
 ## 22. 온도의 최대값
 
 매일 아침 9시에 학교에서 측정한 온도가 어떤 정수의 수열로 주어졌을 때, 연속적인 며칠동안의 온도 합이 가장 큰 값을 알아보고자 한다.
@@ -77,7 +84,7 @@ int main(){
 매일 측정한 온도가 정수의 수열로 주어졌을 때, 연속적인 며칠 동안의 온도 합이 가장 큰 값을 계산하는 프로그램을 작성하세요
 
 > 입력
-첫번째 줄에는 두개의 정수 N과 K가 한 개의 공백을 사이에 두고 순서대로 주어진다.
+첫번째 줄에는 두개의 정수 N과 K가 한 개의 공백을 사이에 두고 순서대로 주어진다. 
 첫 번째 정수 N은 온도를 측정한 전체 날짜의 수다. K는 합을 구하기 위한 연속적인 날짜의 수다.
 
 둘째줄에는 매일 측정한 온도를 나타내는 N개의 정수가 빈칸을 사이에 두고 주어진다. 
@@ -117,6 +124,30 @@ int main(){
     return 0;
 }
 ```
+
+
+### 선생님 코드
+
+이렇게 풀면 되긴 하는데.. 타임 아웃 에러난다 ㅋㅋㅋㅋ ㅠㅠㅠ 흑흑 항상 짜기 쉬운건 속도가 오래걸리쥬?
+
+선생님 코드는 아래와 같다.
+
+```c++
+sum = 0;
+for(int i=0; i<k; i++){
+    sum += arr[i];
+}
+
+for(int i=k; i<N; i++){
+    sum = sum + a[i] - a[i-k];
+    if(max < sum) max = sum;
+}
+```
+
+저 sum 부분을 잘 해결하면.. 이중 for문을 넣지 않아도 된다. 
+`sum = sum + a[i] - a[i-k]` 이걸 잘 기억하자!!!
+
+
 
 
 ## 23. 연속 부분 증가 수열
@@ -176,9 +207,40 @@ int main(){
 }
 ```
 
+### 선생님 코드
+
+나는 입력받는 for문 연산하는 for문 따로 분리했는데, 선생님은 그냥 한번에 다 받아버렸다. 
+
+```c++
+int main(){
+    freopen("input.txt", "rt", stdin);
+    int n, i, pre, now, cnt, max;
+    scanf("%d", &n);
+    scanf("%d", &pre);
+
+    cnt = 1;
+    max = 1;
+
+    for(i = 2; i <= n; i++){
+        scanf("%d", &now);
+        if(now>=pre){
+            cnt++;
+            if(cnt > max) max = cnt;
+        }
+        else
+            cnt = 1;
+
+        pre = now;
+    }
+    printf("%d\n");
+    return 0;
+}
+```
 
 
 ## 24. Jolly Jumpers
+
+(유명한 문제라고 한다~ 와~~)
 
 N개의 정수로 이루어진 수열에 대해 서로 인접해있는 두 수의 차가 1에서 N-1까지의 값을 모두 가지면 그 수열을 유쾌한 점퍼(jolly jumper)라고 부른다. 예를들어 1 4 2 3 앞 뒤에 있는 숫자 차의 절대 값이 각각 3, 2, 1 이므로 이 수열은 유쾌한 점퍼가 된다.
 
@@ -221,6 +283,45 @@ int main(){
     return 0;
 }
 ```
+
+### 선생님 코드
+
+헉 내가 푼 방식은 좋은 방식이 아니다.. 허거걱 -_-;
+아 중복이 나오면 그냥 for문을 끝내버리면 된다. 
+그리고 그.. 두 수의 차의 범위를 생각해주어야한다. 그 범위가 넘어설 경우 잘못된 값을 참조하게 되는데, 이거는 숏 어쩌구로 확인하면 된다고 한다. 이렇게. `if(pos>0 && pos < N && ch[pos] == 0)` 앞에 값을 보는걸 먼저 적어주면 모든 컴퓨터에서 확인 가능!
+
+```c++
+#include <stdio.h>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+int main(){
+    freopen("input.txt", "rt", stdin);
+    int n, i, now, pre, cos;
+    vector<int> ch(n);
+
+    scanf("%d", &n);
+    scanf("%d", &pre);
+
+    for(i=1; i < n; i++){
+        scanf("%d", &now);
+        pos = abs(pre-now);
+        if(pos>0 && pos< n && ch[pos]==0) ch[pos] = 1;
+        else{
+            printf("NO\n");
+            return 0;
+        }
+        pre = now;
+    }
+    printf("YES\n");
+    return 0;
+}
+```
+
+여기서 `pos()` 함수는 두 수의 차를 구하는 함수다. `algorithm` 헤더파일에 존재함.
+
 
 ## 25. 석차 구하기
 
@@ -309,3 +410,38 @@ bool cmp(const s& x, const s& y){
 ```
 
 그래서 나는 cmp 함수를 두개 작성해주었다. index별로 정렬할거랑 score대로 정렬할 것!!
+
+
+
+## 선생님 코드
+
+선생님은 더 쉽게 생각하혔다.
+
+배열 하나를 더 준비하는데, 여기에 모든 값을 1로 초기화한다. 여기서 이중 포문을 돌면서 나보다 큰 수가 나오면 ++ 하는 형식임.
+
+굳이 정렬같은거 생각하지 않아도 되었던 거임!!
+
+
+```c++
+#include <stdio.h>
+int main(){
+    freopen("input.txt", "rt", stdin);
+    int i, j, a[200], b[200], n;
+    scanf("%d", &n);
+    for(i = 1; i <= n; i++){
+        scnaf("%d", &a[i]);
+        b[i] = 1;
+    }
+    
+    for(i=1; i<=n; i++){
+        for(j=1; j<=n; j++){
+            if(a[j] > a[i])
+                b[i]++;
+        }
+    }
+    for(i=1; i<=n; i++){
+        printf("%d", b[i]);
+    }
+    return 0;
+}
+```
