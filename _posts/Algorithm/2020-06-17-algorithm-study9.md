@@ -92,7 +92,6 @@ int getSum(int x, int n){ //x가 시작. n은 몇번 하는지.
 
 첫 줄에 정렬 후 M의 값의 위치 번호를 출력한다.
 
-
 ```c++
 #include <iostream>
 #include <vector>
