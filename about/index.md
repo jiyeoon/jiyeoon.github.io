@@ -7,7 +7,7 @@ type: about
 
 
 
-![내사진](https://instagram.ficn6-1.fna.fbcdn.net/v/t51.2885-15/sh0.08/e35/s640x640/79387239_532218444034085_4081332505292423593_n.jpg?_nc_ht=instagram.ficn6-1.fna.fbcdn.net&_nc_cat=105&_nc_ohc=UotkP-tKpNAAX8Xf1QQ&oh=d5ffdcc375036822519ec0dd26277504&oe=5EA9095F)
+![내사진](../assets/images/jiyeonlee.jpeg)
 
 ### Jiyeon Lee (Rian Lee)
 
