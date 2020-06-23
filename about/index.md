@@ -22,11 +22,12 @@ type: about
 - [ ] 누군가의 멘토가 되어주기
 - [ ] 사랑하는 가족과 친구를 위해 최선을 다하기~
 
-
+  
 ### 경력 사항 (?)
 
 - 2020
     - SAP Korea Student Intern (2020.01.08 ~ current)
+    - Shneider Eletric -  Go Green 2020  Domestic Final
 
 - 2019
     - Google DSC(Developer Student Clubs) Korea Lead (2019.08.15 ~ current)
