@@ -129,17 +129,99 @@ N개의 원소로 구성된 자연수 집합이 주어지면, 집합의 원소�
 예를 들어, {2, 4, 6, 8}이 입력되고 M=12 이면
 
 2 + 4 + 6 = 12
-
 4 + 8 = 12
-
 6 + 8 - 2 = 12
-
 2 - 4 + 6 + 8 = 12
 
 로 총 4가지의 경우가 있다. 만들어지는 경우가 존재하지 않으면 -1를 출력한다.
 
 ```c++
+#include <iostream>
+#include <algorithm>
+#include <vector>
+
+using namespace std;
+
+int arr[11];
+
+int ch[12];
+int polarity[12];
+
+int N, M;
+
+int cnt=0;
+
+vector<int> tmp;
+
+void polarity_DFS(int level);
+void ch_DFS(int level);
+
+void ch_DFS(int level){
+    if(level == N+1){
+        //vector <int> tmp;
+        for(int i=1; i<=N; i++){
+            if(ch[i] == 1)
+                tmp.push_back(arr[i]);
+        }
+        polarity_DFS(1);
+        tmp.clear();
+    }else{
+        ch[level] = 1;
+        ch_DFS(level+1);
+        ch[level] = 0;
+        ch_DFS(level+1);
+    }
+}
+
+void polarity_DFS(int level){
+    if(level == tmp.size()+1){
+        int sum=0;
+        cout << "# : ";
+        for(int i=1; i<=tmp.size(); i++){
+            if(polarity[i] == 1){
+                sum += tmp[i-1];
+                //cout << " + " << tmp[i-1] << " ";
+            }
+            else{
+                sum -= tmp[i-1];
+                //cout << " - " << tmp[i-1] << " ";
+            }
+        }
+        //cout << " = " << sum << endl;
+        if(sum == M)
+            cnt++;
+        
+    }else{
+        polarity[level] = 1; // +
+        polarity_DFS(level+1);
+        polarity[level] = 0;
+        polarity_DFS(level+1);
+        
+    }
+}
+
+int main(){
+    cin >> N >> M;
+    
+    for(int i=1; i<=N; i++){
+        cin >> arr[i];
+    }
+    
+    ch_DFS(1);
+    
+    if(cnt == 0){
+        cout << "-1" << endl;
+    }else{
+        cout << cnt << endl;
+    }
+    
+}
 ```
 
-모르겠다.. 어렵다.. 
-선생님 강의 도움..을 해야겟다 헉억
+*모르겠다.. 어렵다.. 선생님 강의 도움..을 해야겟다 헉억*
+
+
+풀었다!! 여기서는 DFS를 두번 사용해서 풀어야했다. 
+먼저 ch 배열로 있는지 없는지를 선택한 후 극성을 넣어주어야 했던 문제였다. 그 후에는 극성을 선택해주는 polarity를 선택해주는 경우를 또 DFS를 통해 구해줘야 했다.
+
+근데 이게 맞는 건지는 모르겠다. 선생님 강의를 봐야겠다.
