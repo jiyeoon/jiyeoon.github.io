@@ -78,3 +78,79 @@ void DFS(int start){
 DFS를 저렇게 푸는 것이 맞을지는 모르겠지만 암튼 풀었던 문제! 잘 작동하는 것 같다.
 
 여기서 포인트는 **flag 변수**를 두어 이미 방문한 노드면 다시 방문하지 않도록 하는 것! 
+
+---
+
+## 65장. 미로탐색(DFS)
+
+7*7 격자판 미로를 탈출하는 경로의 가지수를 출력하는 프로그램을 작성하세요. 출발점은 격자의 (1, 1) 좌표이고 탈출 도착점은 (7, 7) 좌표이다. 격자판의 1은 벽이고, 0은 통로이다. 격자판의 움직임은 상하좌우로만 움직인다.
+
+출발점에서 도착점까지 갈 수 있는 방법의 수는 여러개 나올 수 있습니다.
+
+> 입력
+
+첫 번째 줄부터 7*7 격자의 정보가 주어집니다.
+
+> 출력
+
+첫 번째 줄에 경로의 가지수를 출력한다.
+
+
+```c++
+#include <iostream>
+#include <algorithm>
+#include <vector>
+
+using namespace std;
+
+int adj[9][9];
+int cnt = 0;
+int flag[8][8];
+
+void DFS(int x, int y);
+
+int main(){
+
+  //input
+  for(int i=1; i<=7; i++){
+    for(int j=1; j<=7; j++){
+      cin >> adj[i][j];
+    }
+  }
+
+  DFS(1, 1);
+
+  cout << cnt << endl;
+}
+
+void DFS(int x, int y){
+  flag[x][y] = 1;
+  if(x==7 && y==7){
+    cnt++;
+  }else{
+    if(flag[x+1][y]==0 && adj[x+1][y] == 0){
+      DFS(x+1, y);
+    }
+    if(flag[x][y+1]==0 && adj[x][y+1] == 0){
+      DFS(x, y+1);
+    }
+    if(flag[x-1][y] == 0 && adj[x-1][y]==0){
+      DFS(x-1, y);
+    }
+    if(flag[x][y-1] == 0 && adj[x][y-1] == 0){
+      DFS(x, y-1);
+    }
+  }
+  flag[x][y] = 0;
+}
+
+/*
+0 0 0 0 0 0 0
+0 1 1 1 1 1 0
+0 0 0 1 0 0 0
+1 1 0 1 0 1 1
+1 1 0 0 0 0 1
+1 1 0 1 1 0 0
+1 0 0 0 0 0 0
+*/
+```
