@@ -79,6 +79,44 @@ DFS를 저렇게 푸는 것이 맞을지는 모르겠지만 암튼 풀었던 문
 
 여기서 포인트는 **flag 변수**를 두어 이미 방문한 노드면 다시 방문하지 않도록 하는 것! 
 
+
+### 선생님 코드
+
+```c++
+#include <stdio.h>
+
+int map[30][30], ch[30], cnt=0;
+int n;
+
+void DFS(int v){
+  if(v==n){
+    cnt++;
+  }else{
+    for(int i=1; i<=n; i++){
+      if(map[v][i] == 1 && ch[i] == 0){
+        ch[i]=1;
+        DFS(i);
+        ch[i]=0;
+      }
+    }
+  }
+}
+
+int main(){
+  int m, i, a, b;
+  scanf("%d %d", &n, &m);
+
+  for(int i=0; i<m; i++){
+    scanf("%d %d", &a, &b);
+    map[a][b] = 1;
+  }
+  
+  ch[1] = 1;
+  DFS(1);
+  printf("%d", cnt);
+}
+```
+
 ---
 
 ## 65장. 미로탐색(DFS)
@@ -154,3 +192,50 @@ void DFS(int x, int y){
 1 0 0 0 0 0 0
 */
 ```
+
+못풀었다!!!
+선생님 코드를 확인해보자.
+
+### 선생님 코드
+
+```c++
+#include <stdio.h>
+int map[10][10], ch[10][10];
+int dx[4] = {-1, 0, 1, 0};
+int dy[4] = {0, 1, 0, -1};
+int cnt=0;
+
+void DFS(int x, int y){
+  int i, xx, yy;
+  if(x==7 && y==7){
+    cnt++;
+  }else{
+    for(i=0; i<4; i++){
+      xx = x + dx[i];
+      yy = y + dy[i];
+      if(xx<1 || xx>7 || yy<1 || yy>7)
+        continue;
+      if(map[xx][yy] == 0 && ch[xx][yy] ==0){
+        ch[xx][yy] = 1;
+        DFS(xx, yy);
+        ch[xx][yy] = 0;
+      }
+    }
+  }
+}
+
+int main(){
+  int i, j;
+  for(int i=1; i<=7; i++){
+    for(int j=1; j<=7; j++){
+      scnaf("%d", &map[i][j]);
+    }
+  }
+  ch[1][1] = 1;
+  DFS(1, 1);
+  printf("%d\n", cnt);
+}
+```
+
+여기서 포인트는..!!!
+**DFS(x, y)** 이렇게 쓴다는 것!!! 
