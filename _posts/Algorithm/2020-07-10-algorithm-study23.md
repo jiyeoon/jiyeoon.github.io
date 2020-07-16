@@ -1,6 +1,6 @@
 ---
 layout : post
-title : "[Algorithm] 인프런 강좌 따라하며 배우는 알고리즘! 76장 ~"
+title : "[Algorithm] 인프런 강좌 따라하며 배우는 알고리즘! 76장"
 date : 2020-07-10 17:00
 category : algorithm
 ---
@@ -66,4 +66,3 @@ int getC(int n, int r){
 
 ---
 
-## 77장. 
