@@ -43,3 +43,68 @@ date : 2020-07-16 17:00
 NO
 ```
 
+### 내가 푼 코드
+
+```c++
+#include <iostream>
+#include <stdio.h>
+#include <algorithm>
+#include <vector>
+
+using namespace std;
+
+int adj[1001][1001];
+int ch[1001];
+
+int result = 0;
+
+int from, to;
+int N;
+void isFriend(int start);
+
+int main(){
+    int M;
+    int a, b;
+    
+    cin >> N >> M;
+    
+    for(int i=0; i<M; i++){
+        cin >> a >> b;
+        adj[a][b] = 1;
+        adj[a][b] = 1;
+    }
+    
+    cin >> from >> to;
+    
+    isFriend(from);
+    
+    if(result == 1){
+        cout << "YES" << endl;
+    }else{
+        cout << "NO" << endl;
+    }
+    
+    return 0;
+    
+}
+
+void isFriend(int start){
+    ch[start] = 1;
+    if(start == to){
+        result = 1;
+    }else{
+        for(int i=1; i<=N; i++){
+            if(adj[start][i] == 1 && ch[i] == 0){
+                isFriend(i);
+            }
+        }
+    }
+    ch[start] = 0;
+}
+```
+
+저번에는 답이 안나왔었는데 이번에는 어떻게 저렇게 풀었다~! 결과값을 전역변수로 빼버리고 샤샤샥 풀어버리니 약간은 쉬움. 
+
+근데 Union & Find라는 것이 뭔지 몰라서 강의를 들어야겠다.
+
+
