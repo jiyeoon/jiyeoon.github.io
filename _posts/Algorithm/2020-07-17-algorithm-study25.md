@@ -201,4 +201,4 @@ int main(void) {
 
 이렇게 하는게 맞나요?
 으아악~~dddd
-jjㅇㅇ
+jjㅇㅇㅓㅓ
