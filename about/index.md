@@ -3,43 +3,40 @@ layout: page
 type: about
 ---
 
-# Who am I?
 
+## Jiyeon Lee (Rian Lee)
 
+> 고객 관점에서 하는 개발에 관심 많은 개발자 👀
 
-![내사진](../assets/images/jiyeonlee.jpeg)
+개발 서적 읽는 것을 좋아하고 가독성/효율성을 개선하는 것을 좋아합니다.
 
-### Jiyeon Lee (Rian Lee)
-
-꿈많고 욕심많고 하고싶은거 많은 학생 개발자~!!
-
-> You Live Only Once?
-
-한번밖에 없는 인생 알차게 살고싶다. 이왕 알차는거 나만 알차지 않고 내 주위 사람들, 그리고 내가 몸담고 있는 사회가 알차졌으면 좋겠다!
-
-- [ ] 남미, 아프리카 여행가기
-- [ ] 봉사하는 삶 살기
-- [ ] 누군가의 멘토가 되어주기
-- [ ] 사랑하는 가족과 친구를 위해 최선을 다하기~
+대용량의 데이터를 처리하여 다수의 머신러닝/딥러닝 모델을 개발한 경험이 있습니다
 
   
-### 경력 사항 (?)
+### Experience
 
+- 2021 ~ 
+    - 2021.01 ~ 2023.12
+        - 11번가 Machine Intelligence팀 ML Engineer 입사
+        - 11번가 광고/추천모델링팀으로 인사변경 
+    - 2021.04 ~ 2021.08
+        - Google Summer Of Code Contributer (참고 : [Google Summer Of Code 합격 및 최종 통과 후기](https://butter-shower.tistory.com/240))
+    - 2022.01
 - 2020
-    - SAP Korea Student Intern (2020.01.08 ~ current)
-    - Shneider Eletric -  Go Green 2020  Domestic Final
-
+    - SAP Korea Student Intern (2020.01 ~ 2020.07)
 - 2019
     - Google DSC(Developer Student Clubs) Korea Lead (2019.08.15 ~ current)
-    - Summer Internship in US (Web Development)
-    - GDG Devfest on Campus - Flutter Codelab Tutor
-    - Flutter Interact Extended Staff
-    - 프로그래밍 소모임 EMOTE 회장 (2019.03.01 ~ 2019.12.31)
+
+
+### Projects
+
+- [Dynamic Pricing 프로젝트](https://daffy-timbale-425.notion.site/Dynamic-Pricing-8f72b956befe49cca291aefcf5ae26c8)
+    - [동일 상품 판별을 위한 Text Similarity Model](https://daffy-timbale-425.notion.site/Text-Similarity-Model-b7f5fe68b4794d279dfb36fa483bdd58)
+    - [최적 가격 추천을 위한 Reinforce Learning Model](https://daffy-timbale-425.notion.site/Reinforce-Learning-Model-f9ef71b6bd6b4a7bb8db108168b3d2ed)
 
 
 ### Social
 
-- facebook : [Jiyeon Lee](https://www.facebook.com/profile.php?id=100005354681961)
-- instagram : [@_gee_y](https://www.instagram.com/_gee_y/?hl=ko)
+- 개발 블로그 : <https://butter-shower.tistory.com/>
 - Linkedin : <https://www.linkedin.com/in/jiyeon-rian-lee>
 - Github : <https://github.com/jiyeoon>
